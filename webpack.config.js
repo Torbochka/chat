@@ -33,7 +33,8 @@ const html = files['.hbs']
             title: file.name,
             template: file.absPath,
             filename: `${file.name}.html`,
-            chunks: [file.name]
+            chunks: [file.name],
+            excludeChunks: ['server']
         });
     });
 
@@ -51,6 +52,7 @@ module.exports = {
         filename: '[name].[hash].js',
         path: path.resolve('dist')
     },
+    target: 'web',
     mode: 'development',
     devtool: 'source-map',
     module: {

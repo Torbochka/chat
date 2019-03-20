@@ -1,5 +1,5 @@
 {
-  "name": "geo-comment",
+  "name": "chat",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -11,19 +11,20 @@
     "start": "npm run watch",
     "test": "karma start",
     "cover": "istanbul cover _mocha -- test/*.js",
-    "prepare": "npm run travis"
+    "prepare": "npm run travis",
+    "server": "node ./src/server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Torbochka/geo-comment.git"
+    "url": "git+https://github.com/Torbochka/chat.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Torbochka/geo-comment/issues"
+    "url": "https://github.com/Torbochka/chat/issues"
   },
-  "homepage": "https://github.com/Torbochka/geo-comment#readme",
+  "homepage": "https://github.com/Torbochka/chat#readme",
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.4",
     "chai": "^4.2.0",
@@ -42,7 +43,8 @@
     "mocha": "^5.2.0",
     "puppeteer": "^1.10.0",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3"
+    "webpack-cli": "^3.2.3",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "@babel/core": "^7.3.4",
@@ -65,6 +67,7 @@
     "mini-css-extract-plugin": "^0.4.4",
     "style-loader": "^0.23.1",
     "uglifyjs-webpack-plugin": "^2.1.2",
-    "webpack-dev-server": "^3.1.10"
+    "webpack-dev-server": "^3.1.10",
+    "express": "^4.16.4"
   }
 }
