@@ -52,7 +52,7 @@ module.exports = {
         filename: '[name].[hash].js',
         path: path.resolve('dist')
     },
-    target: 'web',
+    // target: 'web',
     mode: 'development',
     devtool: 'source-map',
     module: {
@@ -67,9 +67,19 @@ module.exports = {
             }
         ]
     },
+    devServer: {
+        historyApiFallback: true,
+        inline: true,
+        compress: true,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:3000',
+                pathRewrite: { '^/api': '' }
+            }
+        }
+    },
     optimization: {
         minimizer: [
-            // we specify a custom UglifyJsPlugin here to get source maps in production
             new UglifyJsPlugin({
                 cache: true,
                 parallel: true,
