@@ -2,34 +2,33 @@
 <html>
 <head>
     <title>{{htmlWebpackPlugin.options.title}}</title>
-    <style>
-        * {box-sizing: border-box; }
-        body { font: 13px Helvetica, Arial; height: 100%; overflow: hidden;}
-
-        .left {display: block; float: left; width: 300px; min-height: 100vh; background-color: orangered;}
-
-
-        form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
-        form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-        form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-        #messages { list-style-type: none; margin: 0; padding: 0; }
-        #messages li { padding: 5px 10px; }
-        #messages li:nth-child(odd) { background: #eee; }
-    </style>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
 </head>
 <body>
 
 <div id="left" class="left">
-    <div id="profile" class="profile"></div>
+    <div id="profile" class="profile">
+        <img src="" alt="">
+        <h2 id="pname"></h2>
+    </div>
     <div class="users">
-        <ul class="users-list"></ul>
+        <h3>Участники <span id="counter"></span></h3>
+        <ul id="users-list" class="users-list"></ul>
     </div>
 </div>
-<div id="right">
-    <ul id="messages"></ul>
-    <form action="">
-        <input id="m" autocomplete="off" /><button>Send</button>
+<div id="right" class="right">
+    <ul id="messages" class="messages"></ul>
+    <div id="message-input" class="message-input">
+        <form action="">
+            <input id="m" autocomplete="off" /><button id="send">Отправить</button>
+        </form>
+    </div>
+</div>
+
+<div id="authorization" class="authorization">
+    <form name="login-form" action="">
+        <input type="text" name="name" id="name" placeholder="ФИО" value="">
+        <input type="text" name="nickname" id="nickname" placeholder="Ник" value="">
+        <button type="submit" id="login">Войти</button>
     </form>
 </div>
 
