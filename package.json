@@ -4,15 +4,7 @@
   "description": "",
   "private": true,
   "scripts": {
-    "codestyle": "eslint src",
-    "travis": "npm run codestyle && npm test",
-    "build": "webpack --progress --colors",
-    "watch": "webpack-dev-server --progress --colors --open",
-    "start": "npm run watch",
-    "test": "karma start",
-    "cover": "istanbul cover _mocha -- test/*.js",
-    "prepare": "npm run travis",
-    "server": "nodemon ./src/server/server.js"
+    "start": "node ./src/server/server.js"
   },
   "repository": {
     "type": "git",
