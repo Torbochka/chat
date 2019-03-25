@@ -71,10 +71,12 @@ module.exports = {
         historyApiFallback: true,
         inline: true,
         compress: true,
+        disableHostCheck: true,
+        port: 8081,
         proxy: {
-            '/api': {
+            '/': {
                 target: 'http://localhost:3000',
-                pathRewrite: { '^/api': '' }
+                secure: false
             }
         }
     },

@@ -13,9 +13,7 @@ export default {
 
     setProfileName(model, id) {
         const p = document.getElementById(id);
-        const send = document.querySelector('#send');
 
-        send.setAttribute('data-id', model.nickName);
         p.innerHTML = model.name;
     },
 

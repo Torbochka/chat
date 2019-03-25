@@ -3,15 +3,15 @@ let settings = require('./settings');
 let userSchema = new settings.mongoose.Schema({
     name: String,
     nickName: String,
+    image: String
 });
 
 let messagesSchema = new settings.mongoose.Schema({
     messages: [{
-        image: String,
-        name: String,
-        message: String
+        user: { type: settings.mongoose.Schema.Types.ObjectId, ref: 'User' },
+        message: String,
     }]
 });
 
-exports.User = settings.mongoose.model('user', userSchema);
+exports.User = settings.mongoose.model('User', userSchema);
 exports.Messages = settings.mongoose.model('messages', messagesSchema);

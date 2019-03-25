@@ -7,6 +7,7 @@
 
 <div id="left" class="left">
     <div id="profile" class="profile">
+        <input type="file" id="photoInput">
         <img src="" alt="">
         <h2 id="pname"></h2>
     </div>
@@ -19,7 +20,8 @@
     <ul id="messages" class="messages"></ul>
     <div id="message-input" class="message-input">
         <form action="">
-            <input id="m" autocomplete="off" /><button id="send">Отправить</button>
+            <input id="m" autocomplete="off"/>
+            <button id="send">Отправить</button>
         </form>
     </div>
 </div>
@@ -32,7 +34,38 @@
     </form>
 </div>
 
+<div id="upload-photo" class="upload-photo">
+    <h3>Загрузить фото</h3>
+    <div id="target" class="target">
+        <img src="" alt="">
+        <span id="target-img" class="target-img"></span>
+    </div>
+    <button id="upload">Загрузить</button>
+    <button id="cancel">Отмена</button>
+</div>
 
+<style>
+    .upload-photo {
+        position: absolute;
+        display: none;
+        top: 10%;
+        left: 40%;
+        border-radius: 10px;
+        margin: 20px;
+        background-color: #7f7f7f;
+        min-height: 20px;
+    }
+
+    .target {
+        width: 200px;
+        height: 200px;
+        margin: 20px 80px 20px 80px;
+        border: 3px dashed #b3b3b3;
+        border-radius: 10px;
+        background-color: white;
+    }
+
+</style>
 
 </body>
 </html>
