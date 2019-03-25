@@ -72,13 +72,6 @@ module.exports = {
         inline: true,
         compress: true,
         disableHostCheck: true,
-        port: 8081,
-        proxy: {
-            '/': {
-                target: 'http://localhost:3000',
-                secure: false
-            }
-        }
     },
     optimization: {
         minimizer: [
