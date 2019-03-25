@@ -86,6 +86,8 @@ app.post('/auth', async (req, res) => {
     }
 
     res.setHeader('Content-Type', 'application/json');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, PATCH, POST, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     return res.json(usr);
