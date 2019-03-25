@@ -1,14 +1,35 @@
-body {font: 13px Helvetica, Arial;height: 100%;overflow: hidden;}
+body {font: 13px Helvetica, Arial;height: 100%;margin: 0;}
 
-.left {display: block;float: left;width: 400px;min-height: 100vh;background-color: rgba(231, 126, 20, 0);border: 1px solid;}
+.left {display: block;float: left;width: 400px;height: 100vh;background-color: rgba(231, 126, 20, 0);border: 1px solid;}
 .right {}
+
+.upload-photo {
+    position: absolute;
+    display: none;
+    top: 5%;
+    left: 40%;
+    border-radius: 10px;
+    margin: 20px;
+    background-color: #7f7f7f;
+    min-height: 20px;
+}
+
+.target {
+    width: 300px;
+    height: 300px;
+    margin: 20px 80px 20px 80px;
+    border: 3px dashed #b3b3b3;
+    border-radius: 10px;
+    background-color: white;
+    overflow: hidden;
+}
 
 .authorization { position: absolute; top: 200px; left: 800px; width: 300px; height: 400px}
 
 .right .message-input {display: block; float: left;}
-.right form {background: #000;padding: 3px;position: fixed;bottom: 0;width: 100%;}
-.right form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
-.right form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
-.right {display: block;float: left;margin: 0;padding: 0;}
+.right form {background: #000;padding: 3px; position: fixed; bottom: 0;width: 100%;}
+.right form input {border: 0;padding: 10px;width: 65%;margin-right: .5%;}
+.right form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px;}
+.right {display: block; float: left;margin: 0;padding: 0;}
 .right li { padding: 5px 10px; }
 .right li:nth-child(odd) { background: #eee; }

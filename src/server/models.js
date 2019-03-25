@@ -10,6 +10,7 @@ let messagesSchema = new settings.mongoose.Schema({
     messages: [{
         user: { type: settings.mongoose.Schema.Types.ObjectId, ref: 'User' },
         message: String,
+        date: String
     }]
 });
 

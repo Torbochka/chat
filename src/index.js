@@ -10,9 +10,10 @@ const send = document.querySelector('#send');
 const photo = document.querySelector('#photoInput');
 const dropArea = document.querySelector('#target');
 const uploadBtn = document.querySelector('#upload');
+const cancel = document.querySelector('#cancel');
+const avatar = document.getElementById('avatar');
 
 let fileReader = new FileReader();
-
 let socket = io.connect('http://localhost:3000');
 
 let getCookies = () => {
@@ -28,12 +29,6 @@ let getCookies = () => {
 };
 
 let authUser = () => {
-
-    // let form = new FormData();
-    //
-    // form.append('name', document.forms['login-form'].name.value);
-    // form.append('nickName', document.forms['login-form'].nickname.value);
-
     let myHeaders = new Headers();
 
     myHeaders.set('Content-Type', 'application/json');
@@ -77,44 +72,48 @@ login.addEventListener('click', e => {
 
     send.addEventListener('click', e => {
         e.preventDefault();
-
         let c = getCookies();
 
         socket.emit('message', c._id, m.value);
         m.value = '';
     });
 
-    socket.on('message', message => {
-        View.addMessage(Messages, message, 'messages', 'li');
+    socket.on('message', messages => {
+        View.addMessage(Messages, messages, 'messages', 'li');
     });
 
     uploadBtn.addEventListener('click', () => {
-        fileReader.result;
+        let c = getCookies();
+        let src = fileReader.result;
 
-        socket.emit('message', fileReader.result);
+        avatar.src = src;
+        socket.emit('updatePhoto', c._id, src);
+    });
+
+    cancel.addEventListener('click', () => {
+        View.displayElement('upload-photo', 'none');
+
+    });
+
+    socket.on('updatePhoto', messages => {
+        View.render(Messages, messages, 'messages', 'li');
     });
 
     photo.addEventListener('click', () => {
         View.displayElement('upload-photo', 'block');
     });
 
-    // Добавим перетаскивание
-    // Prevent default drag behaviors
+    let preventDefaults = e => {
+        e.preventDefault();
+        e.stopPropagation();
+    };
+
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
         dropArea.addEventListener(eventName, preventDefaults, false);
         document.body.addEventListener(eventName, preventDefaults, false);
     });
 
-    function preventDefaults (e) {
-        e.preventDefault();
-        e.stopPropagation();
-    }
-
-    dropArea.addEventListener('drop', e => {
-        handleDrop(e);
-    }, false);
-
-    function handleDrop(e) {
+    let handleDrop = e => {
         let dt = e.dataTransfer;
         let file = dt.files[0];
 
@@ -125,8 +124,6 @@ login.addEventListener('click', e => {
                 return;
             }
 
-            console.debug('debug!!');
-
             fileReader.readAsDataURL(file);
             fileReader.addEventListener('load', () => {
                 let img = document.querySelector('#target>img');
@@ -134,7 +131,11 @@ login.addEventListener('click', e => {
                 img.src = fileReader.result;
             });
         }
-    }
+    };
+
+    dropArea.addEventListener('drop', e => {
+        handleDrop(e);
+    }, false);
 
 });
 

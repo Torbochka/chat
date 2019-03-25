@@ -1,8 +1,9 @@
 {{#each messages}}
 <li>
-    <div id="photo" class="photo"><img src="{{image}}" alt=""></div>
+    <div id="photo" class="photo"><img src="{{user.image}}" alt="" width="25" height="25"></div>
     <div id="msg" class="msg">
-        <span>{{name}}</span>
+        <span>{{user.name}}</span>
+        <span>{{date}}</span>
         <span>{{message}}</span>
     </div>
 </li>

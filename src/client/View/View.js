@@ -6,6 +6,8 @@ export default {
     addMessage(template, model, id, tag) {
         let element = document.createElement(tag);
 
+        console.log(model);
+
         // TODO пофиксить вложенность
         element.innerHTML = template(model);
         document.getElementById(id).appendChild(element);
@@ -13,7 +15,9 @@ export default {
 
     setProfileName(model, id) {
         const p = document.getElementById(id);
+        const avatar = document.getElementById('avatar');
 
+        avatar.src = model.image;
         p.innerHTML = model.name;
     },
 

@@ -5,26 +5,30 @@
 </head>
 <body>
 
-<div id="left" class="left">
-    <div id="profile" class="profile">
-        <input type="file" id="photoInput">
-        <img src="" alt="">
-        <h2 id="pname"></h2>
+
+<div class="container">
+    <div id="left" class="left">
+        <div id="profile" class="profile">
+            <input type="file" id="photoInput">
+            <img id="avatar" src="" alt="" width="25" height="25">
+            <h2 id="pname"></h2>
+        </div>
+        <div class="users">
+            <h3>Участники <span id="counter"></span></h3>
+            <ul id="users-list" class="users-list"></ul>
+        </div>
     </div>
-    <div class="users">
-        <h3>Участники <span id="counter"></span></h3>
-        <ul id="users-list" class="users-list"></ul>
+    <div id="right" class="right">
+        <ul id="messages" class="messages"></ul>
+        <div id="message-input" class="message-input">
+            <form action="">
+                <input id="m" autocomplete="off"/>
+                <button id="send">Отправить</button>
+            </form>
+        </div>
     </div>
 </div>
-<div id="right" class="right">
-    <ul id="messages" class="messages"></ul>
-    <div id="message-input" class="message-input">
-        <form action="">
-            <input id="m" autocomplete="off"/>
-            <button id="send">Отправить</button>
-        </form>
-    </div>
-</div>
+
 
 <div id="authorization" class="authorization">
     <form name="login-form" action="">
@@ -43,29 +47,6 @@
     <button id="upload">Загрузить</button>
     <button id="cancel">Отмена</button>
 </div>
-
-<style>
-    .upload-photo {
-        position: absolute;
-        display: none;
-        top: 10%;
-        left: 40%;
-        border-radius: 10px;
-        margin: 20px;
-        background-color: #7f7f7f;
-        min-height: 20px;
-    }
-
-    .target {
-        width: 200px;
-        height: 200px;
-        margin: 20px 80px 20px 80px;
-        border: 3px dashed #b3b3b3;
-        border-radius: 10px;
-        background-color: white;
-    }
-
-</style>
 
 </body>
 </html>
