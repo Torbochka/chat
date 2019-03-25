@@ -14,7 +14,7 @@ const cancel = document.querySelector('#cancel');
 const avatar = document.getElementById('avatar');
 
 let fileReader = new FileReader();
-let socket = io.connect('http://localhost:3000');
+let socket = io.connect('https://chat-ls.herokuapp.com');
 
 let getCookies = () => {
     let c = document.cookie;

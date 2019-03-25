@@ -5,6 +5,14 @@ let io = require('socket.io')(http);
 const models = require('./models');
 const userList = new Map();
 
+let allowCrossDomain = function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+};
+
+app.use(allowCrossDomain);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'hbs');
